@@ -1,7 +1,4 @@
 #include "binary_trees.h"
-int binary_h_num(const binary_tree_t *tree);
-int binary_tree_height_num(const binary_tree_t *tree);
-int max_num(int a, int b);
 /**
  * binary_tree_balance - Measures the balance factor of a binary tree
  * @tree: Pointer to the root node of the tree to traverse
@@ -14,42 +11,37 @@ int binary_tree_balance(const binary_tree_t *tree)
 
 	if (tree == NULL)
 		return (0);
-	left_height = binary_tree_height_num(tree->left);
-	right_height = binary_tree_height_num(tree->right);
-	if (tree->n == 98)
-	{
-		printf("%d\n", left_height);
-		printf("%d\n", right_height);
-	}
+	left_height = (int)binary_tree_height(tree->left);
+	right_height = (int)binary_tree_height(tree->right);
 	return (left_height - right_height);
 }
 /**
- * binary_h_num - Measures the height of a binary tree
+ * binary_h - Measures the height of a binary tree
  *
  * @tree: Pointer to the root node of the tree to traverse
  * Return: height
  */
-int binary_h_num(const binary_tree_t *tree)
+size_t binary_h(const binary_tree_t *tree)
 {
-	int left_height;
-	int right_height;
+	size_t left_height;
+	size_t right_height;
 
 	if (tree == NULL)
 		return (0);
 
-	left_height = binary_h_num(tree->left);
-	right_height = binary_h_num(tree->right);
+	left_height = binary_h(tree->left);
+	right_height = binary_h(tree->right);
 
-	return (1 + max_num(left_height, right_height));
+	return (1 + max(left_height, right_height));
 }
 /**
- * max_num - max
+ * max - max
  *
  * @a: a
  * @b: b
  * Return: a or b
  */
-int max_num(int a, int b)
+size_t max(size_t a, size_t b)
 {
 	if (a > b)
 		return (a);
@@ -57,17 +49,17 @@ int max_num(int a, int b)
 		return (b);
 }
 /**
- * binary_tree_height_num - Measures the height of a binary tree
+ * binary_tree_height - Measures the height of a binary tree
  *
  * @tree: Pointer to the root node of the tree to traverse
  * Return: height
  */
-int binary_tree_height_num(const binary_tree_t *tree)
+size_t binary_tree_height(const binary_tree_t *tree)
 {
-	int height;
+	size_t height;
 
 	if (tree == NULL)
 		return (0);
-	height = binary_h_num(tree);
+	height = binary_h(tree);
 	return (height);
 }
