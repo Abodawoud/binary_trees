@@ -1,5 +1,4 @@
 #include "binary_trees.h"
-int binary_tree_balance(const binary_tree_t *tree);
 int binary_h_num(const binary_tree_t *tree);
 int binary_tree_height_num(const binary_tree_t *tree);
 int max_num(int a, int b);
