@@ -12,12 +12,12 @@ size_t binary_h(const binary_tree_t *tree)
 	size_t right_height;
 
 	if (tree == NULL)
-		return 0;
+		return (0);
 
 	left_height = binary_h(tree->left);
 	right_height = binary_h(tree->right);
 
-	return 1 + max(left_height, right_height);
+	return (1 + max(left_height, right_height));
 }
 /**
  * max - max
@@ -26,12 +26,12 @@ size_t binary_h(const binary_tree_t *tree)
  * @b: b
  * Return: a or b
  */
-size_t max(size_t a, size_t b) {
+size_t max(size_t a, size_t b)
+{
 	if (a > b)
-		return a;
+		return (a);
 	else
-		return b;
-	
+		return (b);
 }
 /**
  * binary_tree_height - Measures the height of a binary tree
@@ -44,5 +44,5 @@ size_t binary_tree_height(const binary_tree_t *tree)
 	size_t height;
 
 	height = binary_h(tree);
-	return height - 1;
+	return (height - 1);
 }
